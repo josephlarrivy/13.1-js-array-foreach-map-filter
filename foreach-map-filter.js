@@ -108,17 +108,6 @@ function doubleValuesWithMap(arr) {
     return doubleArr;
 }
 
-
-
-/*
-all functions through this point work correctly
-*/
-
-
-
-
-
-
 /*
 Write a function called valTimesIndex which accepts an array and returns a new array with each value multiplied by the index it is currently at in the array.
 
@@ -128,7 +117,9 @@ Examples:
 */
 
 function valTimesIndex(arr) {
-
+    return arr.map(function(val, idx) {
+        return val*idx;
+    });
 }
 
 /*
@@ -165,7 +156,9 @@ Examples:
 */
 
 function filterByValue(arr, key) {
-
+    return arr.filter(function(val) {
+        return val[key] ===searchValue;
+    })
 }
 
 /*
@@ -176,7 +169,11 @@ Examples:
     find([1,2,3,4,5], 10) // undefined
 */
 
-function find(arr, searchValue) {}
+function find(arr, searchValue) {
+    return arr.filter(function(val) {
+        return val === searchValue;
+    })[0];
+}
 
 /*
 Write a function called findInObj which accepts an array of objects, a key, and some value to search for and returns the first found value in the array.
@@ -185,7 +182,11 @@ Examples:
     findInObj([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner',true) // {first: 'Tim', last:"Garcia", isCatOwner: true}
 */
 
-function findInObj(arr, key, searchValue) {}
+function findInObj(arr, key, searchValue) {
+    return arr.filter(function(val) {
+        return val[key] === searchValue;
+    })[0];
+}
 
 /*
 Write a function called removeVowels which accepts a string and returns a new string with all of the vowels (both uppercased and lowercased) removed. Every character in the new string should be lowercased.
@@ -196,7 +197,13 @@ Examples:
     removeVowels('ZZZZZZ') // ('zzzzzz')
 */
 
-function removeVowels(str) {}
+function removeVowels(str) {
+    const vowels = 'aeiou';
+    return str.toLowerCase().split('').filter(function(val) {
+        return vowels.indexOf(val) === -1;
+    })
+    .join('');
+}
 
 /*
 Write a function called doubleOddNumbers which accepts an array and returns a new array with all of the odd numbers doubled (HINT - you can use map and filter to double and then filter the odd numbers).
@@ -206,4 +213,11 @@ Examples:
     doubleOddNumbers([4,4,4,4,4]) // []
 */
 
-function doubleOddNumbers(arr) {}
+function doubleOddNumbers(arr) {
+    return arr.filter(function(val) {
+        return val%2 !==0;
+    })
+    .map(function(val) {
+        return val*2;
+    });
+}
