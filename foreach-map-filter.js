@@ -59,11 +59,10 @@ Examples:
 
 */
 function addKeyAndValue(arr, key, value){
-    let arr4 = [];
-    arr.forEach(function(obj) {
-        arr4.push(obj[key] = value) ;
+    arr.forEach(function(val) {
+        val[key] = value;
     })
-    return arr4;
+    return arr;
 }
 
 /*
@@ -77,14 +76,17 @@ Examples:
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
 function vowelCount(str){
-    let vowels = 'AEIOUaeiou'
+    let vowels = 'aeiou'
     let splitArr = str.split('')
     let obj = {};
 
     splitArr.forEach(function(letter) {
-        if (vowels.indexOf(letter) !== -1) {
-            if (obj[letter]) {
-                obj[letter]++;
+        let lowerCasedLetter = letter.toLowerCase();
+        if (vowels.indexOf(lowerCasedLetter) !== -1) {
+            if (obj[lowerCasedLetter]) {
+                obj[lowerCasedLetter]++;
+            } else {
+                obj[lowerCasedLetter] = 1;
             }
         }
     });
@@ -105,6 +107,17 @@ function doubleValuesWithMap(arr) {
     });
     return doubleArr;
 }
+
+
+
+/*
+all functions through this point work correctly
+*/
+
+
+
+
+
 
 /*
 Write a function called valTimesIndex which accepts an array and returns a new array with each value multiplied by the index it is currently at in the array.
@@ -152,7 +165,7 @@ Examples:
 */
 
 function filterByValue(arr, key) {
-    
+
 }
 
 /*
