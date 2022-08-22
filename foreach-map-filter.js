@@ -7,7 +7,11 @@ Examples:
 
 */
 function doubleValues(arr){
-    
+    let arr1 = [];
+    arr.forEach(function(num) {
+        arr1.push (num*2);
+    })
+    return arr1;
 }
 
 /*
@@ -19,7 +23,13 @@ Examples:
 
 */
 function onlyEvenValues(arr){
-    
+    let arr2 = [];
+    arr.forEach(function(num) {
+        if (num%2 === 0) {
+            arr2.push(num)
+        }
+    })
+    return arr2;
 }
 
 /*
@@ -31,7 +41,11 @@ Examples:
 
 */
 function showFirstAndLast(arr){
-    
+    let arr3 = [];
+    arr.forEach(function(str) {
+        arr3.push(str[0] + str[str.length -1])
+    })
+    return arr3;
 }
 
 /*
@@ -44,7 +58,11 @@ Examples:
 
 */
 function addKeyAndValue(arr,key,value){
-    
+    let arr4 = [];
+    arr.forEach(function(obj) {
+        arr4.push(val[key] = value) ;
+    })
+    return arr4;
 }
 
 /*
