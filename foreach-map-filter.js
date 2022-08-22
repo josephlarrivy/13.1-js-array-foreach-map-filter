@@ -43,7 +43,8 @@ Examples:
 function showFirstAndLast(arr){
     let arr3 = [];
     arr.forEach(function(str) {
-        arr3.push(str[0] + str[str.length -1])
+        arr3.push(str[0])
+        arr3.push(str[str.length -1])
     })
     return arr3;
 }
@@ -57,10 +58,10 @@ Examples:
     // [{name: 'Elie', title:'instructor'}, {name: 'Tim', title:'instructor'}, {name: 'Matt', title:'instructor'}, {name: 'Colt', title:'instructor'}]
 
 */
-function addKeyAndValue(arr,key,value){
+function addKeyAndValue(arr, key, value){
     let arr4 = [];
     arr.forEach(function(obj) {
-        arr4.push(val[key] = value) ;
+        arr4.push(obj[key] = value) ;
     })
     return arr4;
 }
@@ -76,7 +77,18 @@ Examples:
     vowelCount('I Am awesome and so are you') // {i: 1, a: 4, e: 3, o: 3, u: 1};
 */
 function vowelCount(str){
-   
+    let vowels = 'AEIOUaeiou'
+    let splitArr = str.split('')
+    let obj = {};
+
+    splitArr.forEach(function(letter) {
+        if (vowels.indexOf(letter) !== -1) {
+            if (obj[letter]) {
+                obj[letter]++;
+            }
+        }
+    });
+   return obj;
 }
 
 /*
@@ -87,7 +99,12 @@ Examples:
     doubleValuesWithMap([1,-2,-3]) // [2,-4,-6]
 */
 
-function doubleValuesWithMap(arr) {}
+function doubleValuesWithMap(arr) {
+    let doubleArr = arr.map(function(num) {
+        return num*2;
+    });
+    return doubleArr;
+}
 
 /*
 Write a function called valTimesIndex which accepts an array and returns a new array with each value multiplied by the index it is currently at in the array.
@@ -97,8 +114,8 @@ Examples:
     valTimesIndex([1,-2,-3]) // [0,-2,-6]
 */
 
-function valTimesIndex(arr){
-    
+function valTimesIndex(arr) {
+
 }
 
 /*
@@ -108,8 +125,10 @@ Examples:
     extractKey([{name: 'Elie'}, {name: 'Tim'}, {name: 'Matt'}, {name: 'Colt'}], 'name') // ['Elie', 'Tim', 'Matt', 'Colt']
 */
 
-function extractKey(arr, key){
-    
+function extractKey(arr, key) {
+    return arr.map(function(val) {
+        return val[key];
+    });
 }
 
 /*
@@ -119,8 +138,10 @@ Examples:
     extractFullName([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia"}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele"}]) // ['Elie Schoppik', 'Tim Garcia', 'Matt Lane', 'Colt Steele']
 */
 
-function extractFullName(arr){
-    
+function extractFullName(arr) {
+    return arr.map(function(name) {
+        return `${name.first} ${name.last}`
+    }) 
 }
 
 /*
@@ -130,7 +151,9 @@ Examples:
     filterByValue([{first: 'Elie', last:"Schoppik"}, {first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Matt', last:"Lane"}, {first: 'Colt', last:"Steele", isCatOwner: true}], 'isCatOwner') // [{first: 'Tim', last:"Garcia", isCatOwner: true}, {first: 'Colt', last:"Steele", isCatOwner: true}]
 */
 
-function filterByValue(arr, key) {}
+function filterByValue(arr, key) {
+    
+}
 
 /*
 Write a function called find which accepts an array and a value and returns the first element in the array that has the same value as the second parameter or undefined if the value is not found in the array.
